@@ -1,0 +1,124 @@
+﻿@model MarketWebApp.Models.Produk
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<a asp-controller="Home" asp-action="Index" class="h-10 w-10 flex items-center justify-start gap-2"><i class="fa-solid fa-arrow-left p-1 border border-black rounded-full"></i>Kembali</a>
+
+<div class="grid grid-cols-3 gap-4">
+    <div>
+        <img src="~/Images/@(Model.Image ?? "img-placeholder.png")" alt="@Model.Name" class="aspect-square object-cover rounded-lg mb-4 rounded-xl border shadow-md" />
+    </div>
+    <div class="px-2">
+        <h1 class="text-2xl font-bold mb-4">@Model.Name</h1>
+        <p class="text-xl font-semibold">@Model.GetFormattedPrice()</p>
+            
+        <p class="mt-4 font-semibold">Deskripsi: </p>
+        <p class="text-justify">@Model.Description</p>
+    </div>
+    <div>
+        <form asp-action="TambahKeKeranjang" method="post">
+            <input type="hidden" name="idProduk" value="@Model.Id" />
+            <input type="hidden" id="jumlah" name="jumlah" value="0" />
+
+            <div class="border p-4 rounded-xl">
+                <h1 class="text-2xl font-semibold">Jumlah Barang yang di beli: </h1>
+                <div class="flex items-center gap-2 mt-4">
+                    <div class="flex p-2 border w-fit rounded-lg">
+                        <button id="decrementBtn" class="disabled:opacity-50" onclick="decrement()" type="button" disabled>
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <input id="quantityInput" type="number" inputmode="numeric" class="border mx-2 p-1 w-16 text-center" min="0" max="@Model.Stock" value="0" readonly />
+                        <button id="incrementBtn" class="disabled:opacity-50" onclick="increment()" type="button">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                    <p>Stok: @Model.Stock</p>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                    <p>Subtotal: </p>
+                    <h1 class="font-semibold text-lg" id="subtotal">Rp. 0</h1>
+                </div>
+
+                <button id="addToCartBtn" type="submit" disabled class="flex justify-center items-center gap-2 w-full p-2 mt-2 text-white bg-blue-500 border rounded-lg shadow-md">
+                    <i class="fa-solid fa-cart-shopping"></i> Masukan Keranjang
+                </button>
+            </div>
+        </form>
+    </div>
+    </div>
+
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+</style>
+
+<script>
+    const stock = @Model.Stock;
+    const price = @Model.Price;
+    const quantityInput = document.getElementById('quantityInput');
+    const incrementBtn = document.getElementById('incrementBtn');
+    const decrementBtn = document.getElementById('decrementBtn');
+    const subtotalDisplay = document.getElementById('subtotal');
+    const addToCartBtn = document.getElementById('addToCartBtn');
+
+    quantityInput.value = 1;
+    updateSubtotal();
+
+    document.querySelector('form').addEventListener('submit', function () {
+        const quantity = parseInt(quantityInput.value);
+        document.getElementById('jumlah').value = quantity;
+    });
+
+    function updateSubtotal() {
+        const quantity = parseInt(quantityInput.value);
+        const subtotal = quantity * price;
+        subtotalDisplay.textContent = `Rp. ${subtotal.toLocaleString('id-ID')}`;
+    }
+
+    function increment() {
+        let quantity = parseInt(quantityInput.value);
+        if (quantity < stock) {
+            quantityInput.value = quantity + 1;
+            updateSubtotal();
+        }
+        toggleButtonState();
+    }
+
+    function decrement() {
+        let quantity = parseInt(quantityInput.value);
+        if (quantity > 1) {
+            quantityInput.value = quantity - 1;
+            updateSubtotal();
+        }
+        toggleButtonState();
+    }
+
+    function toggleButtonState() {
+        const quantity = parseInt(quantityInput.value);
+
+        addToCartBtn.disabled = stock === 0 || quantity === 0;
+        if (addToCartBtn.disabled) {
+            addToCartBtn.classList.add('bg-blue-500/50', 'text-white', 'cursor-not-allowed');
+            addToCartBtn.classList.remove('bg-blue-500');
+        } else {
+            addToCartBtn.classList.remove('bg-blue-500/50', 'cursor-not-allowed');
+            addToCartBtn.classList.add('bg-blue-500');
+        }
+
+        decrementBtn.disabled = quantity <= 1;
+        incrementBtn.disabled = quantity >= stock;
+    }
+
+    toggleButtonState();
+</script>
+
+

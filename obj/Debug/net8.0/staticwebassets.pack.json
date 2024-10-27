@@ -1,0 +1,149 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MarketWebApp.bundle.scp.css",
+      "PackagePath": "staticwebassets\\MarketWebApp.bundle.scp.css"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\Images\\bg-container.jpg",
+      "PackagePath": "staticwebassets\\Images\\bg-container.jpg"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\Images\\bg-market.jpg",
+      "PackagePath": "staticwebassets\\Images\\bg-market.jpg"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\Images\\img-content1.png",
+      "PackagePath": "staticwebassets\\Images\\img-content1.png"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\Images\\img-content2.jpg",
+      "PackagePath": "staticwebassets\\Images\\img-content2.jpg"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\Images\\img-content3.jpg",
+      "PackagePath": "staticwebassets\\Images\\img-content3.jpg"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\Images\\img-content4.jpg",
+      "PackagePath": "staticwebassets\\Images\\img-content4.jpg"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\Images\\img-content5.jpg",
+      "PackagePath": "staticwebassets\\Images\\img-content5.jpg"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\Images\\img-content6.jpg",
+      "PackagePath": "staticwebassets\\Images\\img-content6.jpg"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\Images\\img-content7.jpg",
+      "PackagePath": "staticwebassets\\Images\\img-content7.jpg"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\Images\\img-content8.jpg",
+      "PackagePath": "staticwebassets\\Images\\img-content8.jpg"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\Images\\img-market.jpg",
+      "PackagePath": "staticwebassets\\Images\\img-market.jpg"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\Images\\img-promo.jpg",
+      "PackagePath": "staticwebassets\\Images\\img-promo.jpg"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\Images\\img-promo2.webp",
+      "PackagePath": "staticwebassets\\Images\\img-promo2.webp"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\Images\\img-promo3.webp",
+      "PackagePath": "staticwebassets\\Images\\img-promo3.webp"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\css\\input.css",
+      "PackagePath": "staticwebassets\\css\\input.css"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\css\\output.css",
+      "PackagePath": "staticwebassets\\css\\output.css"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "E:\\Belajar\\belajar_dotnet\\Fix\\MarketWebApp\\MarketWebApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MarketWebApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.MarketWebApp.props",
+      "PackagePath": "build\\MarketWebApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.MarketWebApp.props",
+      "PackagePath": "buildMultiTargeting\\MarketWebApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.MarketWebApp.props",
+      "PackagePath": "buildTransitive\\MarketWebApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

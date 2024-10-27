@@ -1,0 +1,112 @@
+﻿@using System.Text.Json
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@* Retrieve User Data from Cookies *@
+@{
+    var userJson = HttpContextAccessor.HttpContext.Request.Cookies["User"];
+    Customer user = null;
+    if (!string.IsNullOrEmpty(userJson))
+    {
+        user = JsonSerializer.Deserialize<Customer>(userJson);
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MarketWebApp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/output.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+    <div class="relative min-h-screen">
+        <header class="relative">
+            <nav class="bg-white shadow-md mb-3 border-b h-full">
+                <div class="max-w-[84rem] mx-auto px-8 sm:flex justify-between items-center">
+                    <a class="text-2xl font-semibold text-gray-800 py-4" asp-controller="Home" asp-action="Index">Electro Market</a>
+                    <button class="sm:hidden text-gray-600 focus:outline-none focus:text-gray-800" type="button" aria-label="Toggle navigation" onclick="toggleMenu()">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden sm:flex sm:items-center w-full sm:w-auto">
+                        <ul class="flex flex-col sm:flex-row sm:space-x-4 py-4">
+                            <li>
+                                <a asp-controller="Home" asp-action="Index" class="text-gray-800 text-lg hover:text-blue-500">Home</a>
+                            </li>
+                            <li>
+                                <a asp-controller="Home" asp-action="Keranjang" class="text-gray-800 text-lg hover:text-blue-500">Keranjang</a>
+                            </li>
+                        </ul>
+
+                        <div class="relative flex justify-start items-center ml-4" onclick="toggleDropdown()">
+                            @if (user != null)
+                            {
+                                <div class="relative flex cursor-pointer items-center gap-2" >
+                                    <div class="w-8 h-8 aspect-square">
+                                        <img src="https://avatars.githubusercontent.com/u/124599?v=4" alt="User Avatar" class="w-full h-full object-cover rounded-full" />
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span class="text-gray-800 font-semibold text-sm">@user.Name</span>
+                                        <span class="text-gray-800 text-xs">Customer</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                    <div id="dropdown" class="absolute right-0 top-10 w-48 bg-white border border-gray-200 rounded shadow-lg hidden z-10">
+                                        <ul class="py-2">
+                                            <li>
+                                                <a href="@Url.Action("Logout", "Home")" class="block px-4 py-2 text-gray-800 hover:bg-red-500 hover:text-white flex gap-2 items-center"><i class="fa-solid fa-power-off"></i>Logout</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="max-w-[84rem] mx-auto px-8 py-4">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer class="border-top footer text-muted bg-gray-50 py-4 border-t shadow ">
+            <div class="text-center w-full">
+                &copy; 2024 - Electro Market
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+<style>
+    .bg-container {
+        background-image: url('~/Images/bg-container');
+    }
+</style>
+
+<script>
+    function toggleDropdown() {
+        const dropdown = document.getElementById('dropdown');
+        dropdown.classList.toggle('hidden');
+    }
+
+    window.onclick = function (event) {
+        if (!event.target.matches('.cursor-pointer')) {
+            const dropdown = document.getElementById('dropdown');
+            if (!dropdown.classList.contains('hidden')) {
+                dropdown.classList.add('hidden');
+            }
+        }
+    }
+</script>
+

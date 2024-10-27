@@ -1,0 +1,94 @@
+﻿@model IEnumerable<MarketWebApp.Models.Produk>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="~/Images/img-promo.jpg" alt="foto-promo" class="w-full h-full rounded-xl mb-4" /></div>
+        <div class="swiper-slide"><img src="~/Images/img-promo2.webp" alt="foto-promo" class="w-full h-full rounded-xl mb-4" /></div>
+        <div class="swiper-slide"><img src="~/Images/img-promo3.webp" alt="foto-promo" class="w-full h-full rounded-xl mb-4" /></div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+
+<div class="flex mt-8 mx-auto items-center w-full">
+    <h1 class="font-bold text-left text-3xl md:text-nowrap mr-5">
+        Rekomendasi Untukmu
+    </h1>
+    <hr class="border-b-2 w-full border-blue-500 hidden md:block " />
+</div>
+<div class="grid grid-cols-4 gap-6 mx-auto">
+
+    @foreach (var product in Model)
+    {
+        <a asp-controller="Home" 
+            class="bg-gray-100 p-0 rounded-xl w-full border rounded-xl mt-4 hover:cursor-pointer no-underline text-black group hover:shadow-xl"
+            asp-action="DetailProduk" 
+            asp-route-id="@product.Id">
+            <div class="aspect-square overflow-hidden">
+                <img src="~/Images/@(product.Image ?? "img-placeholder.png")"
+                        alt="@product.Name" 
+                        class="h-full w-full object-cover rounded-t-xl group-hover:scale-110 transition-transform duration-500 ease-in-out" />
+            </div>
+            <div class="p-4">
+                <h1 class="text-lg font-semibold text-body-title" title="@product.Name">@product.Name</h1>
+                <p class="font-bold">@product.GetFormattedPrice()</p>
+                <p>Stock: @product.Stock</p>
+            </div>
+        </a>
+    }
+    
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+    });
+</script>
+
+<style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper-button-next{
+        color: white;
+        right: var(--swiper-navigation-sides-offset, 10px);
+    }
+    .swiper-button-prev{
+        color:white;
+        left: var(--swiper-navigation-sides-offset, 5px);
+    }
+</style>

@@ -1,0 +1,99 @@
+﻿@model IEnumerable<MarketWebApp.Models.Keranjang>
+
+@{
+    ViewData["title"] = "Keranjang";
+}
+
+<a asp-controller="Home" asp-action="Index" class="h-10 w-10 flex items-center justify-start gap-2"><i class="fa-solid fa-arrow-left p-1 border border-black rounded-full"></i>Kembali</a>
+
+<h1 class="text-3xl font-semibold">Keranjang Anda: </h1>
+
+<div class="grid grid-cols-3 gap-4 mt-4">
+    <div class="bg-gray-50 p-6 w-full rounded-lg border shadow-sm col-span-2">
+        <div class="flex justify-start items-center gap-2">
+            <input type="checkbox" id="pilih-semua" />
+            <label for="pilih-semua">Pilih Semua</label>
+        </div>
+
+        @foreach (var item in Model)
+        {
+            <hr class="my-4" />
+            <div class="flex justify-between items-center">
+                <div class="flex justify-start items-center gap-2">
+                    <input type="checkbox" class="item-checkbox" data-subtotal="@item.SubTotal" /> <!-- Store only numeric value -->
+                    <div class="aspect-square overflow-hidden w-40">
+                        <img src="~/Images/@(item.Produk.Image ?? "img-placeholder.png")"
+                             alt="@item.Produk.Name"
+                             class="h-full w-full object-cover rounded-t-xl border border-black/80 rounded-lg" />
+                    </div>
+                    <div class="max-w-[350px]">
+                        <p class="text-lg font-semibold">@item.Produk.Name</p>
+                        <p>Jumlah: @item.Jumlah * @item.Produk.GetFormattedPrice()</p>
+                    </div>
+                </div>
+                <p class="text-lg font-semibold">@item.GetFormattedSubTotal()</p> <!-- Display formatted subtotal for the user -->
+            </div>
+        }
+    </div>
+    <div>
+        <div class="bg-gray-50 p-6 w-full rounded-lg border shadow-sm sticky top-0">
+            <h1 class="text-xl font-semibold">Ringkasan Keranjang</h1>
+            <p>Total Harga: <span id="total-harga">Rp. 0</span></p>
+            <hr class="my-4" />
+            <button id="addToCartBtn" type="submit" disabled class="flex justify-center items-center gap-2 w-full p-2 mt-2 text-white bg-blue-500/50 cursor-not-allowed border rounded-lg shadow-md">
+                <i class="fa-solid fa-cart-shopping"></i> Masukan Keranjang
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const selectAllCheckbox = document.getElementById("pilih-semua");
+    const itemCheckboxes = document.querySelectorAll(".item-checkbox");
+    const totalHargaElement = document.getElementById("total-harga");
+    const addToCartBtn = document.getElementById("addToCartBtn");
+
+    function calculateTotal() {
+        let total = 0;
+
+        itemCheckboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+                let subtotalText = checkbox.getAttribute("data-subtotal");
+                console.log("Original Subtotal Text:", subtotalText);
+
+                const subtotalValue = parseFloat(subtotalText);
+                console.log("Parsed Subtotal Value:", subtotalValue);
+
+                if (!isNaN(subtotalValue)) {
+                    total += subtotalValue;
+                } else {
+                    console.warn("Subtotal value is NaN after parsing:", subtotalText);
+                }
+            }
+        });
+
+        totalHargaElement.textContent = `Rp. ${total.toLocaleString("id-ID")}`;
+
+        addToCartBtn.disabled = total === 0;
+        addToCartBtn.classList.toggle("bg-blue-500", total !== 0);
+        addToCartBtn.classList.toggle("bg-blue-500/50", total === 0);
+        addToCartBtn.classList.toggle("cursor-not-allowed", total === 0);
+    }
+
+    selectAllCheckbox.addEventListener("change", function () {
+        const isChecked = selectAllCheckbox.checked;
+        itemCheckboxes.forEach((checkbox) => {
+            checkbox.checked = isChecked;
+        });
+        calculateTotal();
+    });
+
+    itemCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener("change", function () {
+            selectAllCheckbox.checked = Array.from(itemCheckboxes).every((checkbox) => checkbox.checked);
+            calculateTotal();
+        });
+    });
+</script>
+
